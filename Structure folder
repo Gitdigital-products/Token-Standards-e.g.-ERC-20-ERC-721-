@@ -1,0 +1,15 @@
+token-standards/
+├── contracts/
+│   ├── ERC20/
+│   │   ├── MyToken.sol
+│   │   └── README.md
+│   └── ERC721/
+│       ├── MyNFT.sol
+│       └── README.md
+├── scripts/
+│   ├── deploy-erc20.js
+│   └── deploy-erc721.js
+├── test/
+├── hardhat.config.js
+├── package.json
+└── README.md

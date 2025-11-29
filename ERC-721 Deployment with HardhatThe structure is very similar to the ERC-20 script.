@@ -1,0 +1,18 @@
+const { ethers } = require("hardhat");
+
+async function main() {
+  const [deployer] = await ethers.getSigners();
+  console.log("Deploying TestNFT from account:", deployer.address);
+
+  const TestNFT = await ethers.getContractFactory("TestNFT");
+  const testNFT = await TestNFT.deploy();
+
+  console.log("TestNFT deployed to:", await testNFT.getAddress());
+}
+
+main()
+  .then(() => process.exit(0))
+  .catch((error) => {
+    console.error(error);
+    process.exit(1);
+  });

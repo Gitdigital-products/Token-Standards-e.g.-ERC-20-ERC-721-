@@ -1,0 +1,13 @@
+// Example: Custom ERC-20
+import "@gitdigital/token-standards/ERC20/MyToken.sol";
+
+contract MyCustomToken is MyToken {
+    constructor() MyToken(
+        "My Token Name",    // Customize
+        "SYMBOL",           // Customize  
+        18,                 // Decimals
+        1000000 * 10**18    // Initial supply
+    ) {
+        // Additional initialization
+    }
+}

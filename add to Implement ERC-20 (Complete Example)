@@ -1,0 +1,103 @@
+// File: contracts/MyAdvancedToken.sol
+pragma solidity ^0.8.20;
+
+import "@openzeppelin/contracts/token/ERC20/ERC20.sol";
+import "@openzeppelin/contracts/token/ERC20/extensions/ERC20Burnable.sol";
+import "@openzeppelin/contracts/token/ERC20/extensions/ERC20Pausable.sol";
+import "@openzeppelin/contracts/access/Ownable.sol";
+import "@openzeppelin/contracts/security/ReentrancyGuard.sol";
+
+contract MyAdvancedToken is 
+    ERC20, 
+    ERC20Burnable, 
+    ERC20Pausable, 
+    Ownable, 
+    ReentrancyGuard 
+{
+    // Constants
+    uint256 public constant MAX_SUPPLY = 1000000000 * 10**18; // 1 billion
+    uint256 public constant TEAM_ALLOCATION = 200000000 * 10**18; // 200 million
+    
+    // State variables
+    address public treasury;
+    uint256 public mintingEndTime;
+    
+    // Events
+    event TokensMinted(address indexed to, uint256 amount);
+    event TreasuryUpdated(address indexed oldTreasury, address indexed newTreasury);
+    
+    // Constructor
+    constructor(
+        address _treasury,
+        address _teamWallet
+    ) ERC20("Advanced Token", "ADV") {
+        require(_treasury != address(0), "Invalid treasury address");
+        require(_teamWallet != address(0), "Invalid team wallet");
+        
+        treasury = _treasury;
+        mintingEndTime = block.timestamp + 365 days; // 1 year minting period
+        
+        // Mint initial allocations
+        _mint(_teamWallet, TEAM_ALLOCATION);
+        _mint(_treasury, 100000000 * 10**18); // 100 million to treasury
+        
+        emit TokensMinted(_teamWallet, TEAM_ALLOCATION);
+        emit TokensMinted(_treasury, 100000000 * 10**18);
+    }
+    
+    // Mint new tokens (owner only, within time limit)
+    function mint(address to, uint256 amount) 
+        external 
+        onlyOwner 
+        nonReentrant 
+    {
+        require(block.timestamp <= mintingEndTime, "Minting period ended");
+        require(totalSupply() + amount <= MAX_S    ERC20Burnable, 
+    ERC20Pausable, 
+    Ownable, 
+    ReentrancyGuard 
+{
+    // Constants
+    uint256 public constant MAX_SUPPLY = 1000000000 * 10**18; // 1 billion
+    uint256 public constant TEAM_ALLOCATION = 200000000 * 10**18; // 200 million
+    
+    // State variables
+    address public treasury;
+    uint256 public mintingEndTime;
+    
+    // Events
+    event TokensMinted(address indexed to, uint256 amount);
+    event TreasuryUpdated(address indexed oldTreasury, address indexed newTreasury);
+    
+    // Constructor
+    constructor(
+        address _treasury,
+        address _teamWallet
+    ) ERC20("Advanced Token", "ADV") {
+        require(_treasury != address(0), "Invalid treasury address");
+        require(_teamWallet != address(0), "Invalid team wallet");
+        
+        treasury = _treasury;
+        mintingEndTime = block.timestamp + 365 days; // 1 year minting period
+        
+        // Mint initial allocations
+        _mint(_teamWallet, TEAM_ALLOCATION);
+        _mint(_treasury, 100000000 * 10**18); // 100 million to treasury
+        
+        emit TokensMinted(_teamWallet, TEAM_ALLOCATION);
+        emit TokensMinted(_treasury, 100000000 * 10**18);
+    }
+    
+    // Mint new tokens (owner only, within time limit)
+    function mint(address to, uint256 amount) 
+        external 
+        onlyOwner 
+        nonReentrant 
+    {
+        require(block.timestamp <= mintingEndTime, "Minting period ended");
+        require(totalSupply() + amount <= MAX_S
+        
+        ---
+        
+        
+        

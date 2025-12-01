@@ -1,0 +1,9 @@
+# Configure .env file
+cp .env.example .env
+# Edit .env with your settings
+
+# Deploy to testnet
+npx hardhat run scripts/deploy.js --network sepolia
+
+# Verify contract
+npx hardhat verify --network sepolia DEPLOYED_ADDRESS "Constructor" "Args"

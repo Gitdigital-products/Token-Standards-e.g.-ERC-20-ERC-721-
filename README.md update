@@ -1,0 +1,30 @@
+## 🧠 Neural Integration Features
+
+### Neural-Enhanced Token Standards
+
+Our token standards now include neural authentication capabilities, bringing biometric security to blockchain transactions:
+
+#### Neural Features Available:
+- **🧠 Neural Transfers**: Authenticate transactions with brainwave patterns
+- **🔒 Soulbound NFTs**: Create non-transferable NFTs bound to neural signatures
+- **📦 Batch Neural Auth**: Single neural proof for multiple operations (ERC-1155)
+- **🔐 Zero-Knowledge Proofs**: Privacy-preserving neural verification
+- **⏱️ Session Management**: Time-limited neural session keys
+
+#### Quick Start with Neural Features:
+
+```solidity
+// SPDX-License-Identifier: MIT
+pragma solidity ^0.8.20;
+
+import "@gitdigital/token-standards/ERC20/NeuroToken.sol";
+
+contract MyNeuralToken is NeuroToken {
+    constructor() NeuroToken("NeuralCoin", "NEURO") {
+        // Your neural token is ready!
+    }
+    
+    function registerNeuralSignature(bytes32 neuralHash) public {
+        // Users can register their neural signatures
+    }
+}

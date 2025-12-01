@@ -1,0 +1,15 @@
+// File: contracts/MyToken.sol
+pragma solidity ^0.8.20;
+
+import "@gitdigital/token-standards/ERC20/MyToken.sol";
+
+contract MyFirstToken is MyToken {
+    constructor() MyToken(
+        "My Token",     // Name
+        "MTK",          // Symbol
+        18,             // Decimals (like ETH)
+        1000000 * 10**18 // Initial supply: 1 million
+    ) {
+        // Your token is ready!
+    }
+}

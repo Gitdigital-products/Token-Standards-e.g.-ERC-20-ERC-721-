@@ -1,0 +1,5 @@
+☑️ Base: ERC20
+☑️ Add: ERC20Votes (for snapshot voting)
+☑️ Add: ERC20Permit (gasless voting)
+☑️ Configure: Time-locked treasury
+☑️ Security: Multi-sig admin

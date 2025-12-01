@@ -1,0 +1,5 @@
+☑️ Base: ERC1155
+☑️ Add: ERC1155Supply (track totals)
+☑️ Add: Batch operations
+☑️ Configure: Fungible currency + NFTs
+☑️ Optimization: Gas-efficient batches

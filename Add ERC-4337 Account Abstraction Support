@@ -1,0 +1,50 @@
+// contracts/ERC4337/NeuralAccount.sol
+// SPDX-License-Identifier: MIT
+pragma solidity ^0.8.20;
+
+import "@account-abstraction/contracts/core/BaseAccount.sol";
+import "@openzeppelin/contracts/utils/cryptography/ECDSA.sol";
+
+contract NeuralAccount is BaseAccount {
+    using ECDSA for bytes32;
+    
+    address public owner;
+    uint256 public neuralNonce;
+    
+    // Neural signature verification storage
+    mapping(bytes32 => bool) public verifiedNeuralHashes;
+    
+    constructor(address _owner) {
+        owner = _owner;
+    }
+    
+    // Entry point for neural-authenticated transactions
+    function validateUserOp(
+        UserOperation calldata userOp,
+        bytes32 userOpHash,
+        uint256 missingAccountFunds
+    ) external override returns (uint256 validationData) {
+        // Verify neural signature
+        bytes32 neuralHash = extractNeuralHash(userOp.signature);
+        require(verifiedNeuralHashes[neuralHash], "Invalid neural signature");
+        
+        // Verify nonce
+        require(userOp.nonce == neuralNonce++, "Invalid nonce");
+        
+        return 0; // Validation successful
+    }
+    
+    function extractNeuralHash(bytes memory signature) internal pure returns (bytes32) {
+        // Extract neural hash from signature (first 32 bytes)
+        bytes32 neuralHash;
+        assembly {
+            neuralHash := mload(add(signature, 32))
+        }
+        return neuralHash;
+    }
+    
+    function registerNeuralHash(bytes32 neuralHash) external {
+        require(msg.sender == owner, "Only owner");
+        verifiedNeuralHashes[neuralHash] = true;
+    }
+}

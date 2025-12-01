@@ -1,0 +1,10 @@
+# Run all tests
+npm test
+
+# Run specific standard tests
+npm run test:erc20
+npm run test:erc721  
+npm run test:erc1155
+
+# Test with gas reporting
+REPORT_GAS=true npm test

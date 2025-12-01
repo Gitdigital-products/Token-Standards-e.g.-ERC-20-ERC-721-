@@ -1,0 +1,21 @@
+token:
+  name: "Your Token Name"
+  symbol: "SYMBOL"
+  decimals: 18
+  total_supply: 1000000000  # 1 billion
+  
+distribution:
+  team: 20%       # 4-year vesting
+  investors: 15%  # 1-year cliff, 2-year vesting  
+  ecosystem: 30%  # Community rewards
+  treasury: 25%   # Future development
+  liquidity: 10%  # Initial DEX listing
+  
+economics:
+  type: "utility"  # utility | governance | hybrid
+  use_cases:
+    - "Payment for services"
+    - "Governance voting"
+    - "Staking rewards"
+  burn_mechanism: "2% of transactions"
+  fee_structure: "1% fee to treasury"

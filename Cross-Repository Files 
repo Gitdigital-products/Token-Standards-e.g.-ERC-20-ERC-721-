@@ -1,0 +1,6 @@
+# Add these to your Token Standards repo
+token-standards/
+├── 📄 docs/TOKEN_STANDARDS_COMPARISON.md
+├── 📄 test/ERC1155/MultiToken.test.js
+├── 📄 examples/gas-optimization-demo.ts    # New: Show gas savings
+└── 📄 examples/neural-token-demo.ts        # New: Neural integration demo

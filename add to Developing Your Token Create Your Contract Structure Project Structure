@@ -1,0 +1,8 @@
+contracts/
+├── MyToken.sol              # Your main contract
+├── interfaces/
+│   └── IMyToken.sol         # Interface definitions
+├── libraries/
+│   └── TokenMath.sol        # Math utilities
+└── extensions/
+    └── MyTokenVesting.sol   # Optional extensions

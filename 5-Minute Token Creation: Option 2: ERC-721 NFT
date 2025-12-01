@@ -1,0 +1,14 @@
+// File: contracts/MyNFT.sol  
+pragma solidity ^0.8.20;
+
+import "@gitdigital/token-standards/ERC721/MyNFT.sol";
+
+contract MyFirstNFT is MyNFT {
+    constructor() MyNFT("My NFT Collection", "MNFT") {
+        // NFT collection ready!
+    }
+    
+    function mintNFT(address to, string memory tokenURI) public {
+        safeMint(to, tokenURI);
+    }
+}

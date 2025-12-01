@@ -1,0 +1,5 @@
+☑️ Base: ERC721
+☑️ Add: ERC721Enumerable (for listings)
+☑️ Add: ERC721Royalty (for creator fees)
+☑️ Configure: Reveal mechanism
+☑️ Security: Freeze metadata if needed

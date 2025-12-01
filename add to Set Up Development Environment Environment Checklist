@@ -1,0 +1,15 @@
+# 1. Install Node.js (v18+)
+node --version  # Should show v18+
+
+# 2. Install Hardhat
+npm install --save-dev hardhat
+
+# 3. Initialize project (if starting fresh)
+npx hardhat init
+# Choose: "Create a TypeScript project"
+
+# 4. Install dependencies
+npm install @openzeppelin/contracts @nomicfoundation/hardhat-toolbox dotenv
+
+# 5. Configure hardhat.config.ts
+# Add your network configurations

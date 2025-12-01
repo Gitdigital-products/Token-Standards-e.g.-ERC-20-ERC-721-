@@ -1,0 +1,14 @@
+// File: contracts/MyMultiToken.sol
+pragma solidity ^0.8.20;
+
+import "@gitdigital/token-standards/ERC1155/MultiToken.sol";
+
+contract MyGameItems is MultiToken {
+    constructor() MultiToken(
+        "Game Items",           // Name
+        "GITM",                // Symbol
+        "https://api.example.com/{id}" // Base URI
+    ) {
+        // Ready for fungible & NFT items!
+    }
+}
